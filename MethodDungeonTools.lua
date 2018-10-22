@@ -9,8 +9,8 @@ _G["MethodDungeonTools"] = MethodDungeonTools
 
 local twipe,tinsert,tremove,tgetn,CreateFrame,tonumber,pi,max,min,atan2,abs,pairs,ipairs,GetCursorPosition,GameTooltip = table.wipe,table.insert,table.remove,table.getn,CreateFrame,tonumber,math.pi,math.max,math.min,math.atan2,math.abs,pairs,ipairs,GetCursorPosition,GameTooltip
 
-local sizex = 840
-local sizey = 555
+local sizex = GetScreenWidth() * 0.8
+local sizey = sizex / 1.513514 -- original resolution was 840 × 555
 local methodColor = "|cFFF49D38"
 local selectedGreen = {0,1,0,0.4}
 selectedGreen = {34/255,139/255,34/255,0.7}
@@ -1309,8 +1309,8 @@ function MethodDungeonTools:MakeMapTexture(frame)
 	if frame.scrollFrame == nil then
 		frame.scrollFrame = CreateFrame("ScrollFrame", "MethodDungeonToolsScrollFrame",frame)
 		frame.scrollFrame:ClearAllPoints();
-		frame.scrollFrame:SetSize(840, 555);
-		frame.scrollFrame:SetPoint("BOTTOM", frame, "BOTTOM", 0, 0);
+		frame.scrollFrame:SetPoint("TOPLEFT", frame, "TOPLEFT", 0, 0);
+		frame.scrollFrame:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 0, 0);
 
 		-- Enable mousewheel scrolling
 		frame.scrollFrame:EnableMouseWheel(true)
